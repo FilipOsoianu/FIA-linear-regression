@@ -19,6 +19,8 @@ def get_data(filePath):
 
 
 def parce_data(data):
+    data.hist(bins=10, figsize=(15,10))
+    plt.savefig('value_distribution.svg')
     Y = data.iloc[:, 8].values
     X = data.drop(['MedianComplexValue'], axis=1)
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.1)
